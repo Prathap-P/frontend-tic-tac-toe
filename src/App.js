@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Heading from './Components/Heading.js';
+import MainContent from './Components/MainContent.js';
 
 function App() {
-  return (
-
-
+  return(
+    <div>
+      <Heading />
+      <MainContent />
+    </div>
   );
 }
 
