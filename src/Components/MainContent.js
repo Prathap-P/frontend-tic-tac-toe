@@ -3,6 +3,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import GameOptions from "./MainComponents/GameOptions.js";
 import JoinGame from "./MainComponents/GameOptions/JoinGame.js";
 import NewGame from "./MainComponents/GameOptions/NewGame.js";
+import PlayGround from "./MainComponents/PlayGround.js";
 
 class MainContent extends Component{
     constructor(props){
@@ -26,6 +27,10 @@ class MainContent extends Component{
 
                     <Route exact path= "/new">
                         <NewGame />
+                    </Route>
+
+                    <Route path= "/play">
+                        <PlayGround />
                     </Route>
                 
                 </BrowserRouter>

@@ -12,8 +12,10 @@ class NewGame extends Component{
         return(
             <div className= "newGame">
                 Choose Opponent
-                <button>Computer</button>
-                <button>Another Player</button>
+
+                <Link to= "/play/comp">Computer </Link>
+                <Link to= "">Another Player</Link>
+
             </div> 
         );
     }
