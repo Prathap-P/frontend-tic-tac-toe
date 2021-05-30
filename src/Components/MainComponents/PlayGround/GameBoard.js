@@ -14,31 +14,31 @@ class GameBoard extends Component{
         let boxProps= {
             turnOver: this.props.turnOver,
             symbol: this.props.symbol,
-            disable: !!this.props.winner
+            disable: (!!this.props.winner) | (!this.props.myTurn)
         }
 
         return(
             <div className= "GameBoard" ref= {this.props.forwardedRef}>
                 {
-                    (this.props.winner) ? (<h1>!!{this.props.winner}{(this.props.winner === "tie") ? "" : " Wins" }...</h1>) : ""
+                    (this.props.winner) ? (<h1>!!{this.props.winner}{(this.props.winner === "Tie") ? "" : " Wins" }...</h1>) : ""
                 }
 
                 <div className= "row" id= 'row1'>
+                    <Box id= '0' {...boxProps } />
                     <Box id= '1' {...boxProps } />
-                    <Box id= '2' {...boxProps } />
-                    <Box id= '3' {...boxProps }/>
+                    <Box id= '2' {...boxProps }/>
                 </div>
 
                 <div className= "row" id= 'row2'>
+                    <Box id= '3' {...boxProps } />
                     <Box id= '4' {...boxProps } />
                     <Box id= '5' {...boxProps } />
-                    <Box id= '6' {...boxProps } />
                 </div>
                 
                 <div className= "row" id= 'row3'>
+                    <Box id= '6' {...boxProps } />
                     <Box id= '7' {...boxProps } />
                     <Box id= '8' {...boxProps } />
-                    <Box id= '9' {...boxProps } />
                 </div>
 
             </div>

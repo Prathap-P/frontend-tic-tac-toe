@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SinglePlayer from './PlayGround/SinglePlayer.js'
+import TwoPlayer from './PlayGround/TwoPlayer.js'
 
 class PlayGround extends Component{
     constructor(props){
@@ -8,13 +9,31 @@ class PlayGround extends Component{
         this.props= props;
     }
 
+    getRoomId(){
+        let urlParams= new URLSearchParams(document.location.search);
+        return urlParams.get("roomId");
+    }
+
+    determineSymbol(){
+        let typeOfEntry= document.location.href.includes("join");
+
+        if(typeOfEntry)
+            return "O";
+
+        return "X";
+    }
+
     render(){
         return(
             <div className= "PlayGround">
                 <BrowserRouter>
-                    <Route path= "/play/comp">
-                        <SinglePlayer />
-                    </Route>
+                    <Switch>
+                        <Route exact path= "/play/comp" component= {SinglePlayer} />
+
+                        <Route path= {["/play/join", "/play/new"]}>
+                            <TwoPlayer roomId= {this.getRoomId()} symbol= {this.determineSymbol()} />
+                        </Route>
+                    </Switch>
 
                 </BrowserRouter>
             </div>

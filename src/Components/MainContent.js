@@ -13,6 +13,7 @@ class MainContent extends Component{
     }
 
     render(){
+        
         return(
             <div className= "MainContent">
                 <BrowserRouter>

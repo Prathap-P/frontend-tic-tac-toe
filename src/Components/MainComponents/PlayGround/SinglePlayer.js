@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GameBoard from './GameBoard.js';
-import {makeBestMove, hasAnybodyWon} from './Algorithm.js';
+import {makeBestMove, hasAnybodyWon, calcIndexFromCoOrdinates} from './Algorithm.js';
 
 const createSinglePlayerMatch= (AbstractComponent)=> {
 
@@ -8,37 +8,41 @@ const createSinglePlayerMatch= (AbstractComponent)=> {
         constructor(props){
             super(props);
             this.props= props;
-            this.state= {};
+            this.state= {
+                myTurn: true
+            };
             this.gameBoardRef= React.createRef();
         }
 
-        computerTurn(){
+        computerTurn(boxId){
             this.boxesArr= Array.from(this.gameBoardRef.current.querySelectorAll(".Box"));
-            this.checkForWinner(this.boxesArr);
+            if(this.checkForWinner(this.boxesArr))
+                return;
             
             let [x, y]= makeBestMove(this.boxesArr);
-            let boxIndex= this.calcIndexFromCoOrdinates(x, y);
+            let boxIndex= calcIndexFromCoOrdinates(x, y);
             this.boxesNodeList[boxIndex].innerText= "O";
 
             this.checkForWinner(this.boxesArr);
         }
 
         checkForWinner(arr){
-            let winner= hasAnybodyWon(arr);
-            if(winner !== null){
-                this.setState({
-                    winner
-                });
-            }
-        }
+            let Winner= hasAnybodyWon(arr);
 
-        calcIndexFromCoOrdinates(x, y){
-            return ((3 * x) + y);
+            if(Winner === null)
+                return false;
+
+            this.setState((prevState) => {
+                return{
+                    winner: Winner,
+                    myTurn: !this.state.myTurn
+                }
+            });
+            return true;
         }
 
         componentDidMount(){
             this.boxesNodeList= this.gameBoardRef.current.querySelectorAll(".Box");
-            console.log(this.gameBoardRef)
         }
 
         render(){
@@ -46,6 +50,7 @@ const createSinglePlayerMatch= (AbstractComponent)=> {
                 ref: this.gameBoardRef,
                 turnOver: this.computerTurn.bind(this),
                 symbol: 'X',
+                myTurn: this.state.myTurn,
                 winner: this.state.winner
             }
             return(

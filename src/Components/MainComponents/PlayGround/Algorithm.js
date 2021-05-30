@@ -1,7 +1,11 @@
 //Algorithm for making computer move in the game
 
+function calcIndexFromCoOrdinates(x, y){
+    return ((3 * x) + y);
+}
+
 let board= [];
-let initializeBoard= (boxes) => {
+function initializeBoard(boxes){
     board= [
         [ boxes[0].innerText, boxes[1].innerText, boxes[2].innerText],
         [ boxes[3].innerText, boxes[4].innerText, boxes[5].innerText],
@@ -9,10 +13,10 @@ let initializeBoard= (boxes) => {
     ]
 }
 
-export function makeBestMove(boxes) {
+function makeBestMove(boxes){
     initializeBoard(boxes);
     let bestScore = Infinity;
-    let move;
+    let move= {};
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -36,10 +40,10 @@ export function makeBestMove(boxes) {
 const scores = {
     "X": 1,
     "O": -1,
-    "tie": 0
+    "Tie": 0
 };
 
-let minimax= (board, depth, isMaximizing) => {
+function minimax(board, depth, isMaximizing){
     let result = checkWinner();
     if (result !== null) {
         return scores[result];
@@ -78,7 +82,7 @@ let minimax= (board, depth, isMaximizing) => {
     }
 }
 
-let checkWinner= () => {
+function checkWinner(){
     
     let equals= (a, b, c) => {
         return a === b && b === c && a !== '';
@@ -118,14 +122,20 @@ let checkWinner= () => {
     }
   
     if (winner === null && openSpots === 0)
-        return 'tie';
+        return 'Tie';
     
     else
         return winner;
     
 }
 
-export let hasAnybodyWon= (boxes) => {
+function hasAnybodyWon(boxes){
     initializeBoard(boxes);
     return checkWinner();
+}
+
+export{
+    hasAnybodyWon,
+    calcIndexFromCoOrdinates,
+    makeBestMove    
 }

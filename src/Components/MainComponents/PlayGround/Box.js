@@ -16,7 +16,7 @@ class Box extends Component{
             return {value: this.props.symbol}
         },
         () => {
-            this.props.turnOver();
+            this.props.turnOver(this.props.id);
         });
     }
 
