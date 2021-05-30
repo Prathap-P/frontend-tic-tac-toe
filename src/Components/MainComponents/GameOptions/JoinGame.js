@@ -9,6 +9,10 @@ class JoinGame extends Component{
     }
 
     joinRoom(){
+        let roomId= this.inputBoxRef.current.value;
+        if(roomId.trim() === "")
+            return;   
+        
         let url= `/play/join?roomId=${this.inputBoxRef.current.value}`;
         document.location.href= url;
     }
