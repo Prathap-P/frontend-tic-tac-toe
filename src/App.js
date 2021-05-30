@@ -1,12 +1,10 @@
 import './App.css';
-import Heading from './Components/Heading.js';
-import MainContent from './Components/MainContent.js';
+import Wrapper from './Components/Wrapper.js';
 
 function App() {
   return(
-    <div>
-      <Heading />
-      <MainContent />
+    <div class= "Wrapper">
+      <Wrapper />
     </div>
   );
 }

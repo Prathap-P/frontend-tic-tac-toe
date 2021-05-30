@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import GameOptions from "./MainComponents/GameOptions.js";
 import JoinGame from "./MainComponents/GameOptions/JoinGame.js";
 import NewGame from "./MainComponents/GameOptions/NewGame.js";
@@ -17,7 +17,15 @@ class MainContent extends Component{
         return(
             <div className= "MainContent">
                 <BrowserRouter>
+
+                    <Link to= "/">
+                        <h1 class= "heading">
+                            Tic-Tac-Toe
+                        </h1>
+                    </Link>
+
                     <Switch>
+                        
                         <Route exact path= "/join">
                             <JoinGame />
                         </Route>
@@ -26,12 +34,12 @@ class MainContent extends Component{
                             <NewGame />
                         </Route>
 
-                        <Route exact path= "/">
-                            <GameOptions />
-                        </Route>
-
                         <Route path= "/play">
                             <PlayGround />
+                        </Route>
+
+                        <Route path= "/">
+                            <GameOptions />
                         </Route>
 
                     </Switch>
