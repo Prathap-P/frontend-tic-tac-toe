@@ -30,7 +30,7 @@ class PlayGround extends Component{
                     <Switch>
                         <Route exact path= "/play/comp" component= {SinglePlayer} />
 
-                        <Route path= {["/play/join", "/play/new"]}>
+                        <Route exact path= {["/play/join", "/play/new"]}>
                             <TwoPlayer roomId= {this.getRoomId()} symbol= {this.determineSymbol()} />
                         </Route>
                     </Switch>

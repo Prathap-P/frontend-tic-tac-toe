@@ -51,7 +51,7 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
         }
 
         createSocket(){
-            this.socketIO= socketClient("http://127.0.0.1:9000");
+            this.socketIO= socketClient(process.env.REACT_APP_SERVER_URL);
             this.socketIO.emit("joinRoom", this.props.roomId);
             this.socketIO.on("canMove", this.changeToMyTurn);
         }
