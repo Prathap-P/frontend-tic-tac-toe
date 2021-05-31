@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 
 class JoinGame extends Component{
     constructor(props){
@@ -20,11 +21,8 @@ class JoinGame extends Component{
     render(){
         return(
             <div className= "joinGame">
-                <div>
-                    <input placeholder= "Enter Room ID" ref= {this.inputBoxRef} />
-                    <button onClick= {this.joinRoom.bind(this)} >Join</button>
-                </div>
-
+                <input placeholder= "Enter Room ID" ref= {this.inputBoxRef} />
+                <button onClick= {this.joinRoom.bind(this)} >Join</button>
             </div>
         );    
     }

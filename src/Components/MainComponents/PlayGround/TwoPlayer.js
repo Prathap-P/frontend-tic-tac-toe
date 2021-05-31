@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import socketClient from 'socket.io-client';
+// import socketClient from 'socket.io-client';
+import {api} from './SocketInterface/APIInterface.js';
 import GameBoard from './GameBoard.js';
 import {hasAnybodyWon} from './Algorithm.js';
 
@@ -21,13 +22,13 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
                 return {myTurn: false}
             },() => {
                 this.checkWinner();
-                this.socketIO.emit("canMove", boxNum); 
+                api.emitEvent(this.socketObj, "canMove", boxNum); 
             })
         }
 
         changeToMyTurn= (boxNum) => {
             let getOppoSymbol= ()=> (this.props.symbol === "X") ? "O" : "X";
-            this.boxesNodeList= this.gameBoardRef.current.querySelectorAll(".Box")[boxNum].innerText= getOppoSymbol();
+            this.gameBoardRef.current.querySelectorAll(".Box")[boxNum].innerText= getOppoSymbol();
             
             if(this.checkWinner())
                 return;
@@ -50,15 +51,11 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
             return true;
         }
 
-        createSocket(){
-            this.socketIO= socketClient(process.env.REACT_APP_SERVER_URL);
-            this.socketIO.emit("joinRoom", this.props.roomId);
-            this.socketIO.on("canMove", this.changeToMyTurn);
-        }
-
         componentDidMount(){
-            this.boxesNodeList= this.gameBoardRef.current.querySelectorAll(".Box");
-            this.createSocket();
+            // this.boxesNodeList= this.gameBoardRef.current.querySelectorAll(".Box");
+            this.socketObj= api.createSocket();
+            api.joinRoom(this.socketObj, this.props.roomId)
+            api.addListener(this.socketObj, "canMove", this.changeToMyTurn.bind(this))
         }
 
         render(){

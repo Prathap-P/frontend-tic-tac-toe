@@ -3,7 +3,7 @@ import Wrapper from './Components/Wrapper.js';
 
 function App() {
   return(
-    <div class= "Wrapper">
+    <div class= "App">
       <Wrapper />
     </div>
   );

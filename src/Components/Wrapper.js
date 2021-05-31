@@ -5,7 +5,7 @@ import JoinGame from "./MainComponents/GameOptions/JoinGame.js";
 import NewGame from "./MainComponents/GameOptions/NewGame.js";
 import PlayGround from "./MainComponents/PlayGround.js";
 
-class MainContent extends Component{
+class Wrapper extends Component{
     constructor(props){
         super(props);
         this.props= props;
@@ -15,7 +15,7 @@ class MainContent extends Component{
     render(){
         
         return(
-            <div className= "MainContent">
+            <div className= "Wrapper">
                 <BrowserRouter>
 
                     <Link to= "/">
@@ -50,4 +50,4 @@ class MainContent extends Component{
     }
 }
 
-export default MainContent;
+export default Wrapper;
