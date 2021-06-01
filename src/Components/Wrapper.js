@@ -4,6 +4,7 @@ import GameOptions from "./MainComponents/GameOptions.js";
 import JoinGame from "./MainComponents/GameOptions/JoinGame.js";
 import NewGame from "./MainComponents/GameOptions/NewGame.js";
 import PlayGround from "./MainComponents/PlayGround.js";
+import "../css/Wrapper.css"
 
 class Wrapper extends Component{
     constructor(props){
@@ -18,32 +19,35 @@ class Wrapper extends Component{
             <div className= "Wrapper">
                 <BrowserRouter>
 
-                    <Link to= "/">
+                    <Link to= "/" className= "heading">
                         <h1 class= "heading">
                             Tic-Tac-Toe
                         </h1>
                     </Link>
 
-                    <Switch>
-                        
-                        <Route exact path= "/join">
-                            <JoinGame />
-                        </Route>
+                    <div className= "mainContent">
+                        <Switch>
+                            
+                            <Route exact path= "/join">
+                                <JoinGame />
+                            </Route>
 
-                        <Route exact path= "/new">
-                            <NewGame />
-                        </Route>
+                            <Route exact path= "/new">
+                                <NewGame />
+                            </Route>
 
-                        <Route path= "/play">
-                            <PlayGround />
-                        </Route>
+                            <Route path= "/play">
+                                <PlayGround />
+                            </Route>
 
-                        <Route path= "/">
-                            <GameOptions />
-                        </Route>
+                            <Route path= "/">
+                                <GameOptions />
+                            </Route>
 
-                    </Switch>
-                
+                        </Switch>
+
+                    </div>
+                    
                 </BrowserRouter>
             </div>
         );    

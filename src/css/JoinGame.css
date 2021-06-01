@@ -1,0 +1,9 @@
+.JoinGame{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 15px;
+}
+
+.button{
+    grid-column: 3;
+}

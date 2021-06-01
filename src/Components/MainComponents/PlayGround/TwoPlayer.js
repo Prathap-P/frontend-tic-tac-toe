@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import socketClient from 'socket.io-client';
+import '../../../css/TwoPlayer.css'
 import {api} from './SocketInterface/APIInterface.js';
 import GameBoard from './GameBoard.js';
 import {hasAnybodyWon} from './Algorithm.js';
@@ -67,10 +67,10 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
                 winner: this.state.winner
             }
             return(
-                <>
-                    <div>Room ID: {this.props.roomId}</div>
+                <div className= "TwoPlayers">
+                    <div className= "roomDetails">Room ID: {this.props.roomId}</div>
                     <AbstractComponent {...gameBoardProps}/>
-                </>
+                </div>
             );    
         }
     })

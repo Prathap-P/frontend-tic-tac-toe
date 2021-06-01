@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link } from 'react-router-dom';
+import '../../css/GameOptions.css'
 
 class GameOptions extends Component{
     constructor(props){
@@ -11,9 +12,10 @@ class GameOptions extends Component{
     render(){
         return(
             <div className= "GameOptions">
+                <h3 className= "caption" >Get Ready...</h3>
                 <div className= "Options">
-                    <Link to= "/new">New Game </Link>
-                    <Link to= "/join">Join a Game</Link>
+                    <Link to= "/new" className= "btn btn-primary">New Game </Link>
+                    <Link to= "/join" className= "btn btn-primary">Join Game</Link>
                 </div>
                 
             </div>

@@ -1,0 +1,11 @@
+.Options{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+.caption{
+    color: white;
+    font-style: italic;
+}

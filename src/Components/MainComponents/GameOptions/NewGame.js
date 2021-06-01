@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import '../../../css/NewGame.css'
 
 class NewGame extends Component{
     constructor(props){
@@ -14,13 +15,15 @@ class NewGame extends Component{
 
     render(){
         return(
-            <div className= "newGame">
-                Choose Opponent
-
-                <Link to= "/play/comp">Computer </Link>
-                <Link to= {`/play/new?roomId=${this.createRoomID()}`} >
-                    <button>Another Player</button>
-                </Link>
+            <div className= "NewGame">
+                <h3 className= "info" >Choose Opponent</h3>
+                
+                <div className= "options">
+                    <Link to= "/play/comp" className= "btn btn-primary">Computer </Link>
+                    <Link to= {`/play/new?roomId=${this.createRoomID()}`} className= "btn btn-primary">
+                        Player 2
+                    </Link>
+                </div>
 
             </div> 
         );

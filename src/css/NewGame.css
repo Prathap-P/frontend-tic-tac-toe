@@ -1,0 +1,10 @@
+.info{
+    color:white;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    padding: 26px;
+}

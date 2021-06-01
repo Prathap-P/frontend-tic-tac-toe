@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import '../../../css/JoinGame.css'
 
 class JoinGame extends Component{
     constructor(props){
@@ -20,9 +21,9 @@ class JoinGame extends Component{
 
     render(){
         return(
-            <div className= "joinGame">
-                <input placeholder= "Enter Room ID" ref= {this.inputBoxRef} />
-                <button onClick= {this.joinRoom.bind(this)} >Join</button>
+            <div className= "JoinGame">
+                <input placeholder= "Enter Room ID" type= "text" ref= {this.inputBoxRef} className= "form-control" />
+                <button onClick= {this.joinRoom.bind(this)} className= "btn btn-primary button" >Join</button>
             </div>
         );    
     }
