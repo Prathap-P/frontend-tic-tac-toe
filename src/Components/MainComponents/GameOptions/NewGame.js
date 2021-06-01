@@ -16,12 +16,12 @@ class NewGame extends Component{
     render(){
         return(
             <div className= "NewGame">
-                <h3 className= "info" >Choose Opponent</h3>
+                <h3 className= "caption" >Choose Opponent</h3>
                 
                 <div className= "options">
                     <Link to= "/play/comp" className= "btn btn-primary">Computer </Link>
                     <Link to= {`/play/new?roomId=${this.createRoomID()}`} className= "btn btn-primary">
-                        Player 2
+                        Player
                     </Link>
                 </div>
 

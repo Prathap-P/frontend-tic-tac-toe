@@ -9,3 +9,9 @@
     color: white;
     font-style: italic;
 }
+
+@media(max-width: 600px){
+    .Options{
+        padding: 20px 0px 20px 0px;
+    }
+}

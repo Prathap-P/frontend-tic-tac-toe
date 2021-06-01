@@ -1,9 +1,15 @@
 .JoinGame{
     display: grid;
     grid-template-columns: auto auto auto;
+    /* align-items:flex-end;
+    justify-content: space-evenly; */
     padding: 15px;
 }
 
 .button{
     grid-column: 3;
+}
+
+@media(max-width: 600px){
+    
 }

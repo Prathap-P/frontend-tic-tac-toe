@@ -1,6 +1,6 @@
 .Wrapper{
     margin:0px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #161b22;
 }
 
@@ -8,6 +8,8 @@
     margin: 0px;
     padding: 10px;
     color: white;
+    position: relative;
+    z-index: 2;
 }
 
 .heading:hover{
@@ -25,4 +27,23 @@
     display: grid;
     align-items: center;
     background-color: #0d1117;
+    position: relative;
+    z-index: 2;
+}
+
+@media(max-width: 800px){
+    .mainContent{
+        width: 50%;
+    }
+}
+
+@media(max-width: 600px){
+    .mainContent{
+        width: 80%;
+        transform: translate(-50%, -15%);
+    }
+    .heading{
+        font-size: 2.2rem;
+        transform: translate(0, -15%);
+    }
 }
