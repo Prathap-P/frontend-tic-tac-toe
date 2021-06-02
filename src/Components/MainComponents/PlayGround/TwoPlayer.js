@@ -52,7 +52,6 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
         }
 
         componentDidMount(){
-            // this.boxesNodeList= this.gameBoardRef.current.querySelectorAll(".Box");
             this.socketObj= api.createSocket();
             api.joinRoom(this.socketObj, this.props.roomId)
             api.addListener(this.socketObj, "canMove", this.changeToMyTurn.bind(this))
@@ -68,6 +67,9 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
             }
             return(
                 <div className= "TwoPlayers">
+                    
+                    {(!this.state.winner) ? (<h2 className= "caption" >{(this.state.myTurn) ? "Your " : "Opponent's "} Turn</h2>) : ""}
+
                     <div className= "roomDetails">Room ID: {this.props.roomId}</div>
                     <AbstractComponent {...gameBoardProps}/>
                 </div>

@@ -20,7 +20,7 @@ class GameBoard extends Component{
         return(
             <div className= "GameBoard" ref= {this.props.forwardedRef}>
                 {
-                    (this.props.winner) ? (<h1 className= "result" >!!{this.props.winner}{(this.props.winner === "Tie") ? "" : " Wins" }...</h1>) : ""
+                    (this.props.winner) ? (<h2 className= "result" >!!{this.props.winner}{(this.props.winner === "Tie") ? "" : " Wins" }...</h2>) : ""
                 }
 
                 <div className= "board">

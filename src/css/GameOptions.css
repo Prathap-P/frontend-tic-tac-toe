@@ -8,6 +8,7 @@
 .caption{
     color: white;
     font-style: italic;
+    padding: 10px;
 }
 
 @media(max-width: 600px){

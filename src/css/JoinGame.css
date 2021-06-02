@@ -9,7 +9,3 @@
 .button{
     grid-column: 3;
 }
-
-@media(max-width: 600px){
-    
-}
