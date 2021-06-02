@@ -22,7 +22,7 @@ const createTwoPlayerMatch= (AbstractComponent)=> {
                 return {myTurn: false}
             },() => {
                 this.checkWinner();
-                api.emitEvent(this.socketObj, "canMove", boxNum); 
+                api.emitEvent(this.socketObj, "canMove", [this.props.roomId, boxNum]); 
             })
         }
 

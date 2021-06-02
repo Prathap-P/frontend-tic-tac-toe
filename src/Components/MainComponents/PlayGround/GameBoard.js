@@ -15,13 +15,21 @@ class GameBoard extends Component{
             turnOver: this.props.turnOver,
             symbol: this.props.symbol,
             disable: (!!this.props.winner) | (!this.props.myTurn)
-        }
+        };
+
+        let announceResult= ()=> {
+            if(this.props.winner === this.props.symbol)
+                return "You Won";
+            
+            else if(this.props.winner === "Tie")
+                return  "Tied";
+            
+            return "Opponent Won";
+        };
 
         return(
             <div className= "GameBoard" ref= {this.props.forwardedRef}>
-                {
-                    (this.props.winner) ? (<h2 className= "result" >!!{this.props.winner}{(this.props.winner === "Tie") ? "" : " Wins" }...</h2>) : ""
-                }
+                {(this.props.winner) ? (<h2 className= "result" >{announceResult()}</h2>) : ""}
 
                 <div className= "board">
                     <div className= "row" id= 'row1'>

@@ -16,7 +16,7 @@ class JoinGame extends Component{
             return;
 
         let roomId= inputBox.value;
-        if(roomId.trim() === "")
+        if(roomId.trim() === "" || roomId.length !== 5)
             return;   
         
         let url= `/play/join?roomId=${this.inputBoxRef.current.value}`;
@@ -26,8 +26,12 @@ class JoinGame extends Component{
     render(){
         return(
             <div className= "JoinGame">
-                <input placeholder= "Enter Room ID" type= "text" ref= {this.inputBoxRef} className= "form-control" />
-                <Link to= {this.joinRoom.bind(this)} className= "btn btn-primary button" >Join</Link>
+                <h2 className= "caption" >Give 5 digit Id</h2>
+                
+                <div className= "content">
+                    <input placeholder= "Enter Room ID" type= "text" ref= {this.inputBoxRef} className= "form-control" />
+                    <Link to= {this.joinRoom.bind(this)} className= "btn btn-primary button" >Join</Link>
+                </div>
             </div>
         );    
     }
