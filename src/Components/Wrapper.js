@@ -17,38 +17,35 @@ class Wrapper extends Component{
         
         return(
             <div className= "Wrapper">
-                <BrowserRouter>
 
-                    <Link to= "/" className= "heading">
-                        <h1 class= "heading">
-                            Tic-Tac-Toe
-                        </h1>
-                    </Link>
+				<Link to= "/" className= "heading">
+					<h1 class= "heading">
+						Tic-Tac-Toe
+					</h1>
+				</Link>
 
-                    <div className= "mainContent">
-                        <Switch>
-                            
-                            <Route exact path= "/join">
-                                <JoinGame />
-                            </Route>
+				<div className= "mainContent">
+					<Switch>
+						
+						<Route exact path= "/join">
+							<JoinGame />
+						</Route>
 
-                            <Route exact path= "/new">
-                                <NewGame />
-                            </Route>
+						<Route exact path= "/new">
+							<NewGame />
+						</Route>
 
-                            <Route path= "/play">
-                                <PlayGround />
-                            </Route>
+						<Route exact path= "/play*">
+							<PlayGround />
+						</Route>
 
-                            <Route path= "/">
-                                <GameOptions />
-                            </Route>
+						<Route path= "/">
+							<GameOptions />
+						</Route>
 
-                        </Switch>
-
-                    </div>
-                    
-                </BrowserRouter>
+					</Switch>
+				</div>
+				
             </div>
         );    
     }

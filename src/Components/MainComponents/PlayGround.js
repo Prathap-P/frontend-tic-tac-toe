@@ -26,7 +26,6 @@ class PlayGround extends Component{
     render(){
         return(
             <div className= "PlayGround">
-                <BrowserRouter>
                     <Switch>
                         <Route exact path= "/play/comp" component= {SinglePlayer} />
 
@@ -34,8 +33,6 @@ class PlayGround extends Component{
                             <TwoPlayer roomId= {this.getRoomId()} symbol= {this.determineSymbol()} />
                         </Route>
                     </Switch>
-
-                </BrowserRouter>
             </div>
         );    
     }

@@ -55,7 +55,6 @@ const createSinglePlayerMatch= (AbstractComponent)=> {
             }
             return(
                 <div>
-                    {(!this.state.winner) ? (<h3 className= "caption" >You can do it...</h3>) : ""}
                     <AbstractComponent {...gameBoardProps}/>
                 </div>
             );    

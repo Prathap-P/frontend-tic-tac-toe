@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import '../../../css/TwoPlayer.css'
 import {api} from './SocketInterface/APIInterface.js';
 import GameBoard from './GameBoard.js';
 import {hasAnybodyWon} from './Algorithm.js';
+import '../../../css/TwoPlayer.css'
 
 const createTwoPlayerMatch= (AbstractComponent)=> {
 
